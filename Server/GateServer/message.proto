@@ -1,0 +1,137 @@
+syntax = "proto3";
+
+package message;
+
+//PS:所有string类型均改为了bytes类型，所有int32类型均改为了int64类型
+/*********************************************************************************************************/
+//验证服务
+service VerifyService {
+	rpc GetVerifyCode (GetVerifyReq) returns (GetVerifyRsp) {}
+}
+
+//获取验证码请求
+message GetVerifyReq {
+	string email = 1;
+}
+
+//获取验证码回复
+message GetVerifyRsp {
+	int32 error = 1;
+	string email = 2;
+	string code = 3;
+}
+
+/*********************************************************************************************************/
+//状态服务
+service StatusService {
+	rpc GetChatServer (GetChatServerReq) returns (GetChatServerRsp) {}
+	rpc Login(LoginReq) returns(LoginRsp);
+}
+
+//获取聊天服务器请求
+message GetChatServerReq {
+	int32 uid = 1;
+}
+
+//获取聊天服务器回复
+message GetChatServerRsp {
+	int32 error = 1;
+	string host = 2;
+	string port = 3;
+	string token = 4;
+}
+
+//登陆请求	后续基本没用
+message LoginReq{
+	int32 uid = 1;
+	string token= 2;
+}
+
+//登陆回复	后续基本没用
+message LoginRsp {
+	int32 error = 1;
+	int32 uid = 2;
+	string token = 3;
+}
+
+/*********************************************************************************************************/
+//聊天服务
+service ChatService {
+	rpc NotifyAddFriend(AddFriendReq) returns (AddFriendRsp) {}
+	rpc ReplyAddFriend(ReplyFriendReq) returns (ReplyFriendRsp) {}
+	rpc SendChatMsg(SendChatMsgReq) returns (SendChatMsgRsp) {}
+	rpc NotifyAuthFriend(AuthFriendReq) returns (AuthFriendRsp) {}
+	rpc NotifyTextChatMsg(TextChatMsgReq) returns (TextChatMsgRsp){}
+}
+
+//好友申请请求
+message AddFriendReq {
+	int32 applyuid = 1;
+	string name = 2;
+	string desc = 3;
+	int32 touid = 4;
+}
+//好友申请回复
+message AddFriendRsp {
+	int32 error = 1;
+	int32 applyuid = 2;
+	int32 touid = 3;
+}
+
+//回复好友 请求
+message ReplyFriendReq {
+	int32 rplyuid = 1;
+	bool  agree = 2;
+	int32 touid = 3;
+}
+//回复好友 回复
+message ReplyFriendRsp {
+	int32 error = 1;
+	int32 rplyuid = 2;
+	int32 touid = 3;
+}
+
+//发送聊天消息请求
+message SendChatMsgReq{
+	int32 fromuid = 1;
+	int32 touid = 2;
+	string message = 3;
+}
+//发送聊天消息回复
+message SendChatMsgRsp{
+	int32 error = 1;
+	int32 fromuid = 2;
+	int32 touid = 3;
+}
+
+//验证好友请求
+message AuthFriendReq{
+	int32 fromuid = 1;
+	int32 touid = 2;
+}
+//验证还有回复
+message AuthFriendRsp{
+	int32 error = 1;
+	int32 fromuid = 2;
+	int32 touid = 3;
+}
+
+//文本聊天消息请求
+message TextChatMsgReq {
+	int32 fromuid = 1;
+    int32 touid = 2;
+	repeated TextChatData textmsgs = 3;
+}
+//文本聊天消息回复
+message TextChatMsgRsp {
+	int32 error = 1;
+	int32 fromuid = 2;
+	int32 touid = 3; 
+	repeated TextChatData textmsgs = 4;
+}
+//文本聊天内容
+message TextChatData{
+	string msgid = 1;
+	string msgcontent = 2;
+}
+/*********************************************************************************************************/

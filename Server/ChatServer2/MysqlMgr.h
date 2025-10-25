@@ -1,0 +1,27 @@
+﻿#pragma once
+#include "const.h"
+#include "MysqlDao.h"
+
+//此类只是接口调用层，将接口信息暴露出来，具体实现在DAO中操作
+class MysqlMgr:public Singleton<MysqlMgr>
+{
+    friend class Singleton<MysqlMgr>;
+public:
+    ~MysqlMgr();
+    int RegUser(const std::string& name, const std::string& email, const std::string& pwd);
+    bool CheckEmail(const std::string& name, const std::string& email);
+    bool UpdatePwd(const std::string& name, const std::string& pwd);
+    bool CheckPwd(const std::string& name, const std::string& pwd, UserInfo& userInfo);
+    bool AddFriendApply(const int& from, const int& to);
+    bool AuthFriendApply(const int& from, const int& to);
+    bool AddFriend(const int& from, const int& to, std::string back_name);
+	std::shared_ptr<UserInfo> GetUser(int uid);//通过uid获取用户信息
+	std::shared_ptr<UserInfo> GetUser(std::string name);//通过名字获取用户信息
+    bool GetApplyList(int touid, std::vector<std::shared_ptr<ApplyInfo>>& applyList, int begin, int limit = 10);
+    bool GetFriendList(int self_id, std::vector<std::shared_ptr<UserInfo> >& user_info);
+
+private:
+    MysqlMgr();
+    MysqlDao _dao;
+};
+
