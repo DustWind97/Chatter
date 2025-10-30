@@ -17,6 +17,7 @@ llfcchat.pro.user
 /Client/Chatter/Chatter.vcxproj.filters
 /Client/Chatter/Chatter.vcxproj.user
 /Client/Chatter/Chatter_resource.rc
+/Client/Chatter/build
 /Client/Chatter/debug
 /Client/Chatter/release
 /Client/Chatter/ui_adduseritem.h
