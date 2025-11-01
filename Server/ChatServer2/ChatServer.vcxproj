@@ -114,6 +114,11 @@
       <Command>
       </Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)config.ini" "$(SolutionDir)$(Platform)\$(Configuration)\" /y 
+
+xcopy "$(ProjectDir)*.dll" "$(SolutionDir)$(Platform)\$(Configuration)\" /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

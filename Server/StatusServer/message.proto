@@ -1,20 +1,20 @@
-syntax = "proto3";
+ï»¿syntax = "proto3";
 
 package message;
 
-//PS:ËùÓĞstringÀàĞÍ¾ù¸ÄÎªÁËbytesÀàĞÍ£¬ËùÓĞint32ÀàĞÍ¾ù¸ÄÎªÁËint64ÀàĞÍ
+//PS:æ‰€æœ‰stringç±»å‹å‡æ”¹ä¸ºäº†bytesç±»å‹ï¼Œæ‰€æœ‰int32ç±»å‹å‡æ”¹ä¸ºäº†int64ç±»å‹
 /*********************************************************************************************************/
-//ÑéÖ¤·şÎñ
+//éªŒè¯æœåŠ¡
 service VerifyService {
 	rpc GetVerifyCode (GetVerifyReq) returns (GetVerifyRsp) {}
 }
 
-//»ñÈ¡ÑéÖ¤ÂëÇëÇó
+//è·å–éªŒè¯ç è¯·æ±‚
 message GetVerifyReq {
 	string email = 1;
 }
 
-//»ñÈ¡ÑéÖ¤Âë»Ø¸´
+//è·å–éªŒè¯ç å›å¤
 message GetVerifyRsp {
 	int32 error = 1;
 	string email = 2;
@@ -22,18 +22,18 @@ message GetVerifyRsp {
 }
 
 /*********************************************************************************************************/
-//×´Ì¬·şÎñ
+//çŠ¶æ€æœåŠ¡
 service StatusService {
 	rpc GetChatServer (GetChatServerReq) returns (GetChatServerRsp) {}
 	rpc Login(LoginReq) returns(LoginRsp);
 }
 
-//»ñÈ¡ÁÄÌì·şÎñÆ÷ÇëÇó
+//è·å–èŠå¤©æœåŠ¡å™¨è¯·æ±‚
 message GetChatServerReq {
 	int32 uid = 1;
 }
 
-//»ñÈ¡ÁÄÌì·şÎñÆ÷»Ø¸´
+//è·å–èŠå¤©æœåŠ¡å™¨å›å¤
 message GetChatServerRsp {
 	int32 error = 1;
 	string host = 2;
@@ -41,13 +41,13 @@ message GetChatServerRsp {
 	string token = 4;
 }
 
-//µÇÂ½ÇëÇó	ºóĞø»ù±¾Ã»ÓÃ
+//ç™»é™†è¯·æ±‚	åç»­åŸºæœ¬æ²¡ç”¨
 message LoginReq{
 	int32 uid = 1;
 	string token= 2;
 }
 
-//µÇÂ½»Ø¸´	ºóĞø»ù±¾Ã»ÓÃ
+//ç™»é™†å›å¤	åç»­åŸºæœ¬æ²¡ç”¨
 message LoginRsp {
 	int32 error = 1;
 	int32 uid = 2;
@@ -55,7 +55,7 @@ message LoginRsp {
 }
 
 /*********************************************************************************************************/
-//ÁÄÌì·şÎñ
+//èŠå¤©æœåŠ¡
 service ChatService {
 	rpc NotifyAddFriend(AddFriendReq) returns (AddFriendRsp) {}
 	rpc ReplyAddFriend(ReplyFriendReq) returns (ReplyFriendRsp) {}
@@ -64,72 +64,72 @@ service ChatService {
 	rpc NotifyTextChatMsg(TextChatMsgReq) returns (TextChatMsgRsp){}
 }
 
-//ºÃÓÑÉêÇëÇëÇó
+//å¥½å‹ç”³è¯·è¯·æ±‚
 message AddFriendReq {
 	int32 applyuid = 1;
 	string name = 2;
 	string desc = 3;
 	int32 touid = 4;
 }
-//ºÃÓÑÉêÇë»Ø¸´
+//å¥½å‹ç”³è¯·å›å¤
 message AddFriendRsp {
 	int32 error = 1;
 	int32 applyuid = 2;
 	int32 touid = 3;
 }
 
-//»Ø¸´ºÃÓÑ ÇëÇó
+//å›å¤å¥½å‹ è¯·æ±‚
 message ReplyFriendReq {
 	int32 rplyuid = 1;
 	bool  agree = 2;
 	int32 touid = 3;
 }
-//»Ø¸´ºÃÓÑ »Ø¸´
+//å›å¤å¥½å‹ å›å¤
 message ReplyFriendRsp {
 	int32 error = 1;
 	int32 rplyuid = 2;
 	int32 touid = 3;
 }
 
-//·¢ËÍÁÄÌìÏûÏ¢ÇëÇó
+//å‘é€èŠå¤©æ¶ˆæ¯è¯·æ±‚
 message SendChatMsgReq{
 	int32 fromuid = 1;
 	int32 touid = 2;
 	string message = 3;
 }
-//·¢ËÍÁÄÌìÏûÏ¢»Ø¸´
+//å‘é€èŠå¤©æ¶ˆæ¯å›å¤
 message SendChatMsgRsp{
 	int32 error = 1;
 	int32 fromuid = 2;
 	int32 touid = 3;
 }
 
-//ÑéÖ¤ºÃÓÑÇëÇó
+//éªŒè¯å¥½å‹è¯·æ±‚
 message AuthFriendReq{
 	int32 fromuid = 1;
 	int32 touid = 2;
 }
-//ÑéÖ¤»¹ÓĞ»Ø¸´
+//éªŒè¯è¿˜æœ‰å›å¤
 message AuthFriendRsp{
 	int32 error = 1;
 	int32 fromuid = 2;
 	int32 touid = 3;
 }
 
-//ÎÄ±¾ÁÄÌìÏûÏ¢ÇëÇó
+//æ–‡æœ¬èŠå¤©æ¶ˆæ¯è¯·æ±‚
 message TextChatMsgReq {
 	int32 fromuid = 1;
     int32 touid = 2;
 	repeated TextChatData textmsgs = 3;
 }
-//ÎÄ±¾ÁÄÌìÏûÏ¢»Ø¸´
+//æ–‡æœ¬èŠå¤©æ¶ˆæ¯å›å¤
 message TextChatMsgRsp {
 	int32 error = 1;
 	int32 fromuid = 2;
 	int32 touid = 3; 
 	repeated TextChatData textmsgs = 4;
 }
-//ÎÄ±¾ÁÄÌìÄÚÈİ
+//æ–‡æœ¬èŠå¤©å†…å®¹
 message TextChatData{
 	string msgid = 1;
 	string msgcontent = 2;

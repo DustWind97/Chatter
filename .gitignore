@@ -3,7 +3,6 @@ Debug
 x64
 .vs
 llfcchat.pro.user
-/Server/VerifyServer/node_modules
 /Client/Chatter/.qtc_clangd
 /Client/Chatter/.qmake.stash
 /Client/Chatter/bin/Chatter.exe
