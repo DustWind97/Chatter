@@ -351,22 +351,22 @@ void ChatDialog::AddChatUserList()
 
     /*如下为测试代码***********************************************************************************************************/
     // 创建QListWidgetItem，并设置自定义的widget
-    // for(int i = 0; i < 7; i++){
-    //     int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
-    //     int str_i = randomValue % msgs.size();//下标随机取余
-    //     int head_i = randomValue % heads.size();
-    //     int name_i = randomValue % names.size();
+    for(int i = 0; i < 12; i++){
+        int randomValue = QRandomGenerator::global()->bounded(100); // 生成0到99之间的随机整数
+        int str_i = randomValue % msgs.size();//下标随机取余
+        int head_i = randomValue % heads.size();
+        int name_i = randomValue % names.size();
 
-    //     auto *chat_user_wid = new ChatUserWid();
-    //     auto user_info = std::make_shared<UserInfo>(0, names[name_i], names[name_i], heads[head_i], 0, msgs[str_i]);//绑定参数
-    //     chat_user_wid->SetInfo(user_info);
+        auto *chat_user_wid = new ChatUserWid();
+        auto user_info = std::make_shared<UserInfo>(0, names[name_i], names[name_i], heads[head_i], 0, msgs[str_i]);//绑定参数
+        chat_user_wid->SetInfo(user_info);
 
-    //     QListWidgetItem *item = new QListWidgetItem;
-    //     //qDebug()<<"chat_user_wid sizeHint is " << chat_user_wid->sizeHint();
-    //     item->setSizeHint(chat_user_wid->sizeHint());
-    //     ui->chat_user_list->addItem(item);
-    //     ui->chat_user_list->setItemWidget(item, chat_user_wid);
-    // }
+        QListWidgetItem *item = new QListWidgetItem;
+        //qDebug()<<"chat_user_wid sizeHint is " << chat_user_wid->sizeHint();
+        item->setSizeHint(chat_user_wid->sizeHint());
+        ui->chat_user_list->addItem(item);
+        ui->chat_user_list->setItemWidget(item, chat_user_wid);
+    }
     /*如上为测试代码***********************************************************************************************************/
 }
 
