@@ -50,5 +50,6 @@
         <file>res/head_vae2.jpg</file>
         <file>res/head_vae3.jpg</file>
         <file>res/people.png</file>
+        <file>res/dust.jpg</file>
     </qresource>
 </RCC>

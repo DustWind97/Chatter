@@ -134,6 +134,8 @@ Makefile: Chatter.pro D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mk
 		D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_concurrent.pri \
 		D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_concurrent_private.pri \
 		D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_core.pri \
+		D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_core5compat.pri \
+		D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_core5compat_private.pri \
 		D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_core_private.pri \
 		D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_datavisualization.pri \
 		D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_datavisualization_private.pri \
@@ -485,6 +487,8 @@ D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_c
 D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_concurrent.pri:
 D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_concurrent_private.pri:
 D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_core.pri:
+D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_core5compat.pri:
+D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_core5compat_private.pri:
 D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_core_private.pri:
 D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_datavisualization.pri:
 D:\SoftWare\DeveloperTools\Qt\Qt6.7.3\6.7.3\msvc2022_64\mkspecs\modules\qt_lib_datavisualization_private.pri:
